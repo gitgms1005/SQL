@@ -33,9 +33,10 @@ SELECT name,home FROM cartoons WHERE home="desert";
 SELECT title,length FROM shorts WHERE length<8;
 
 /* what characters who live in bugs house are in shorts less than 8 minutes*/
-SELECT name,length,title FROM cartoons, shorts
+SELECT c.name,c.home,s.length,s.title FROM cartoons c
+    LEFT JOIN shorts s
+    ON c.name=s.starring
     WHERE home="bugs_house" AND length<8
-    GROUP BY name, length;
+    ORDER BY name
     
-/*to be updated, not complete*/
 
