@@ -9,6 +9,7 @@ INSERT INTO cartoons VALUES(2,"daffy_duck", "misadventures", "sandwiches", "bugs
 INSERT INTO cartoons VALUES(3,"roadrunner", "running", "bird_seed", "desert");
 INSERT INTO cartoons VALUES(4,"wile_e_coyote", "antagonist", "birds", "desert");
 INSERT INTO cartoons VALUES(5,"porky", "annunciation", "cotton_candy", "porkys_house");
+INSERT INTO cartoons VALUES(6,"tasmanian_devil", "chaos", "animals", "tasmania");
 
 
 CREATE TABLE shorts (id INTEGER PRIMARY KEY,
@@ -21,6 +22,13 @@ INSERT INTO shorts VALUES(1,"aint_that_ducky", "daffy_duck", 7, 1945);
 INSERT INTO shorts VALUES(2,"tick_tock_tuckered", "porky", 7, 1944);
 INSERT INTO shorts VALUES(3,"buckaroo_bugs", "bugs_bunny", 9, 1944);
 INSERT INTO shorts VALUES(4,"draftee_daffy", "daffy_duck", 7, 1945);
+INSERT INTO shorts VALUES(5,"porkys_last stand", "porky", 6, 1940);
+INSERT INTO shorts VALUES(6, "porkys_picnic", "porky", 7, 1939);
+INSERT INTO shorts VALUES(7, "bully_for_bugs", "bugs_bunny", 7, 1953);
+INSERT INTO shorts VALUES(8, "rabbits_feat", "bugs_bunny", 6, 1960);
+INSERT INTO shorts VALUES(9, "daffy_rents", "daffy_duck", 6, 1966);
+
+
 
 /* basic queries*/
 SELECT * FROM cartoons;
@@ -29,14 +37,14 @@ SELECT * FROM shorts;
 /* which ones live in the desert*/
 SELECT name,home FROM cartoons WHERE home="desert";
 
-/* how many shorts are under 8 minutes*/
-SELECT title,length FROM shorts WHERE length<8;
+/* how many shorts are under 7 minutes*/
+SELECT title,length FROM shorts WHERE length<7;
 
 /* what characters who live in bugs house are in shorts less than 8 minutes*/
 SELECT c.name,c.home,s.length,s.title FROM cartoons c
     LEFT JOIN shorts s
     ON c.name=s.starring
     WHERE home="bugs_house" AND length<8
-    ORDER BY name
+    ORDER BY name;
     
-
+    
